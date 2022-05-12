@@ -26,9 +26,7 @@ body {
     background-color: var(--cHeadFoot);
 }
 
-.header{
-    padding: 2rem;
-}
+
 
 .title{
     display: inline-block;
@@ -53,23 +51,23 @@ body {
 
 .title::before{
     background: var(--cHeadFoot);
-    animation:  typewriter 4s steps(17) 0.5s forwards;
+    animation:  typewriter 2s steps(17) 0.5s forwards;
 }
 
 .title::after{
     width: 0.125em;
     background: black;
-    animation:  typewriter 4s steps(17) 0.5s forwards, blinken 700ms steps(17) infinite;
+    animation:  typewriter 2s steps(17) 0.5s forwards, blinken 700ms steps(17) infinite;
 }
 
 .headerInfo{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
     color: white;
     opacity: 0;
-    animation: fadeIn 1s ease 5.8s forwards;
+    animation: fadeIn 1s ease 0.25s forwards;
 }
 
 .headerInfo > h1{
@@ -79,14 +77,19 @@ body {
 .headerInfo >  ul{
     display: flex;
     gap: 4rem;
-  
+    
 }
 
 .headerInfo > ul > li ,.headerInfo a{
     list-style: none;
     color: white;
     font-size: 125%;
+    height: 10rem;
+    margin: auto 0;
 }
+
+
+
 
 @keyframes blinken{
     to{
@@ -114,6 +117,11 @@ body {
     height: 100vh;
 
     margin: 0 auto;
+}
+
+
+.fa-cart-shopping{
+    font-size: 125%;
 }
 
 hr {
