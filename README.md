@@ -18,3 +18,5 @@ Igor Herrebrugh |
 
 Op mijn website kan je oude games inleveren voor een steam key. De mensen krijgen dan een gedeelte van het 
 geld als ik de ingeleverde game kan verkopen.
+<br>
+Trello : https://trello.com/b/pGBfjQPC/f2m4bo#
