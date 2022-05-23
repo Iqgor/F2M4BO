@@ -18,9 +18,8 @@
 </head>
 <body>
     <header class="header">
-        <a href="index.html"> <h1 class="title" id="js--title">Welkom bij: ReUse</h1></a>
        
-        <div class="headerInfo" id="js--info">
+        <div class="headerInfo hContact">
             <a href="index.html"><h1 class="logo">&#9842; ReUse</h1></a>
             <ul>
                 <li><a href="../index.html#js--artmain2" class="hover--animation2">Inzenden</a></li>
@@ -36,11 +35,11 @@
     </header>
     <main class="main mainContact">
         <h2>Contact</h2>
-        <form action="proces-form.php" method="post">
+        <form class="contactForm"action="proces-form.php" method="post">
                 <label for="naam">Naam: </label>
                 <input type="text" name="naam" id="naam">
                 <label for="bericht">Bericht: </label>
-                <textarea  id="bericht" name="bericht" ></textarea>
+                <textarea  id="bericht" rows="3" name="bericht" ></textarea>
                 <label for="priority">Prioriteit:</label>
                 <select  id="priority" name="priority">
                     <option value="1">Laag</option>
@@ -58,7 +57,7 @@
                         Suggesties
                     </label>
                 </fieldset>
-             <button>Verzenden</button>
+             <button class="hover--animation2">Verzenden</button>
                 
                 
                 
