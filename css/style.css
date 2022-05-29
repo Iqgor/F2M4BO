@@ -22,6 +22,31 @@ body {
     font-size: 1.6rem;
     font-family: 'PT sans' , sans-serief;
     background-color: var(--linkHover2);
+    overflow-x: hidden;
+}
+
+.top{
+    font-size: 200%;
+    background: white;
+    padding: 0 1rem 0 1rem;
+    border-radius: 0.5rem;
+    position: fixed;
+    bottom: 17%;
+    left: 10%;
+    color: var(--texthead);
+    transition: 0.2s;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.top:hover{
+    color: var(--textcolor);
+    background: var(--cHeadFoot);
+  
+}
+
+.top:active{
+    transform: translateY(-0.4rem);
+    
 }
 
 .header,
@@ -106,6 +131,8 @@ body {
 
 .headerInfo > h1{
     font-size: 6rem;
+    
+    
 }
 
 .headerInfo >  ul{
@@ -194,13 +221,36 @@ body {
     }
 }
 
+.circle{
+    height: 50rem;
+    width: 50rem;
+    z-index: -1;
+    position: fixed;
+    
+    border-radius: 50%;
+}
+
+.circle1{
+    top: -10rem;
+    left: -15rem;
+    background: linear-gradient(150deg, #CDBE78,70%, var(--linkHover) );
+}
+
+.circle2{
+    bottom:-10rem ;
+    right: -10rem;
+    background: linear-gradient(to left, #908c8c,70%,#FFF323 );
+}
+
+
+
 .main{
     width: 60vw;
     height: 100%;
     margin: 0 auto;
-    background-color: white;
+    background-color: transparent;
     border-radius: 0.5rem;
-    box-shadow: 4px -2px 48px -38px rgba(0,0,0,0.25) inset;
+
 }
 
 .mainIndex {
@@ -218,6 +268,7 @@ body {
 .mainHR{
     grid-column: 1/13;
     grid-row: 9/10;
+    border-top: 1px solid white;
 }
 
 .main p {
@@ -228,6 +279,7 @@ body {
     padding: 2rem;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius:0.5rem ;
+    background:white ;
 }
 
 .artmain1{ 
@@ -251,9 +303,11 @@ body {
 .mainIndex > h2{
     color:var(--texthead);
     font-size:210%;
-    grid-column: 2/12;
+    grid-column: 2/13;
     text-align: center;
     margin-top: 3rem;
+    padding-left: 0.2rem;
+    font-weight: bold
 }
 
 
@@ -403,6 +457,10 @@ body {
     font-size: 250%;
 }
 
+.mainContact > h3{
+    color:var(--texthead);
+    font-size: 150%;
+}
 .contactForm{
     width: 50%;
     height: 50%;
@@ -481,6 +539,7 @@ hr {
     display: flex;
     gap: 2rem;
     padding-top: 2rem;
+    background: transparent;
 }
 
 
@@ -562,11 +621,28 @@ a {
     .reyAnimation{
         display: none;
     }
- 
-    
+    .circle{
+        display: none;
+    }
+    .artmain1{ 
+        
+        grid-row: 3/9;
+       
+     }
+     
+     .artmain2{
+        
+         grid-row: 11/17;
+     }
+     
+     
+     
+     .artmain3{
+         
+         grid-row: 19/26;
+     }
 
 }
-
 
 
 @media screen and (max-width:62.5rem) {
@@ -591,10 +667,21 @@ a {
         margin: 0 ;
         height: 100%;
     }
-    
+    .main > hr {
+        display: none;
+    }
+}
+
+@media screen and (max-width:50rem) {
+    .header  h1{
+        display: none;
+    }
 }
 
 @media screen and (max-width:37.5rem) {
+    .header a{
+        font-size: 80%;
+    }
     .main{
         display: flex;
         flex-direction: column;
