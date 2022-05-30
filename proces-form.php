@@ -7,7 +7,7 @@ $type = filter_input(INPUT_POST,"type",FILTER_VALIDATE_INT);
 
 
 $host = "localhost";
-$dbname = "berichten";
+$dbname = "reuse";
 $username = "root";
 $password = "";
 
