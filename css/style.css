@@ -529,14 +529,14 @@ body {
     cursor: pointer;
 }
 
-.contactForm > button span{
+.confirm span{
     cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.contactForm > button span::after{
+.confirm span::after{
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -547,13 +547,105 @@ body {
 }
 
 
-.contactForm > button:hover span{
+.confirm:hover span{
     padding-right: 2.5rem;
 }
 
-.contactForm > button:hover span:after{
+.confirm:hover span:after{
     opacity: 1;
     right: 0;
+}
+
+
+.mainTekoop{
+    margin-top: 2rem;
+
+}
+
+.producten{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 2rem;
+}
+
+.product{
+    list-style: none;
+    height: 35rem;
+    width: 25rem;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.product >  button{
+    text-decoration: none;
+    outline: none;
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    position: relative;
+    background:transparent ;
+   
+}
+
+
+
+.product >button > img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: 0.5s opacity;
+    
+    
+}
+
+
+.product >button>img:hover{
+    opacity: 0.8;
+    filter: blur(0.1rem);
+    cursor: pointer;
+}
+
+.productInfo{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+
+.productInfo > div{
+    
+}
+
+.productInfo >img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.productInfo > button{
+    margin-top: 0.5rem;
+    height: 15%;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: 'PT sans' , sans-serief;
+    transition: all 0.5s;
+    border-radius: 0.25rem;
+}
+
+.productInfo > img:hover{
+    cursor: pointer;
 }
 
 
