@@ -13,7 +13,7 @@ window.setTimeout(function () {
 }, 2900);
 
 
-let productbutton = document.getElementsByClassName("product--button")
+/*let productbutton = document.getElementsByClassName("product--button")
 let productinfo = document.getElementsByClassName("productInfo")
 let productimage = document.getElementsByClassName("pimage")
 
@@ -23,20 +23,25 @@ console.log(productbutton)
 
 let mode = "uit"
 
+
+
+
 for (let i = 0; i < productbutton.length; i++) {
-    productbutton[i].onclick = function () {
-        console.log(mode)
-        productimage[i].style.display = "none"
-        productinfo[i].style.display = "flex"
-        productbutton[i].style.zIndex = "-1"
-        mode = "uit"
-
-
-
-
+    productbutton[i].onmouseover = function () {
+        console.log(mode) 
+        if (mode === "uit") {
+            productimage[i].style.display = "none"
+            productinfo[i].style.display = "flex"
+            productbutton[i].style.zIndex = "-1" 
+            mode = "uit"
+        }
+        else{
+            
+        }
 
 
     }
-}
+}*/
+
 
 
