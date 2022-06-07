@@ -1,3 +1,25 @@
+<?php
+$host = "localhost";
+$dbname = "reuse";
+$username = "root";
+$password = "";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (mysqli_connect_errno()) {
+    die("Connection error" . mysqli_connect_error());
+}
+
+$sql = 'SELECT  id,gamenaam,prijs,foto FROM producten ';
+
+$result = mysqli_query($conn, $sql);
+
+$producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +27,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hier kan je ReUse Contacten.">
+    <meta name="description" content="Alles wat Tekoop is bij ReUse">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
@@ -15,7 +37,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="js/script.js" defer></script>
     <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
-    <title>ReUse | Contact</title>
+    <title>ReUse | TeKoop</title>
     <link rel="shortcut icon" href="img/recycling-symbol-icon-twotone-light-green.png" type="image/x-icon">
 </head>
 
@@ -30,7 +52,7 @@
             </a>
             <ul>
                 <li><a href="index.html#js--artmain2" class="hover--animation2">Inzenden</a></li>
-                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
+                <li><a href="tekoop.html" class="hover--animation2">Tekoop</a></li>
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
             </ul>
             <div class="icons">
@@ -40,48 +62,37 @@
             </div>
         </div>
     </header>
-    <main class="main mainContact">
-        <h2>Contact</h2>
-        <p>Wij zijn er voor de klant, daarom willen we graag weten wat de klant wil/vind.
-            Al heeft u dus een klacht/Suggestie kunt u ons gewoon bereiken via telefoon ( (+31) 6 15438490 ) of <a class="hover--animation" href="mailto:herrebrughigor@gmail.com">email.</a>
-            
-        </p>
-        <p><br>Hieronder kunt u ook een formulier inleveren als u dat fijner vind.</p>
-        <h3>Formulier</h3>
-        <form class="contactForm" action="proces-form.php" method="post">
-            <label for="naam">Naam: </label>
-            <input type="text" name="naam" id="naam">
-            <label for="bericht">Bericht: </label>
-            <textarea id="bericht" rows="3" name="bericht"></textarea>
-            <label for="priority">Prioriteit:</label>
-            <select id="priority" name="priority">
-                <option value="1">Laag</option>
-                <option value="2" selected>Middelmatig</option>
-                <option value="3">Hoog</option>
-            </select>
-            <fieldset>
-                <legend>Type</legend>
-                <label>
-                    <input type="radio" name="type" value="1" checked>
-                    Klacht
-                </label>
-                <label>
-                    <input type="radio" name="type" value="2">
-                    Suggesties
-                </label>
-            </fieldset>
-            <button class="confirm"><span>Verzenden</span></button>
+    <main class="main mainTekoop">
+        <ul class="producten">
+
+            <?php foreach ($producten as $product) : ?>
+                <li class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="<?php echo $product['foto']; ?>" alt="">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3><?php echo $product['gamenaam']; ?></h3>
+                            <p><?php echo $product['prijs'], "$"; ?></p>
+                            <img src="<?php echo $product['foto']; ?> " alt="">
+                            <button class="confirm"><span>Zet het in winkelmandje</span></button>
+                        </div>
+                    </div>
 
 
+                </li>
+            <?php endforeach; ?>
 
-        </form>
+           
+          
+        </ul>
     </main>
+    <a class="top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
     <hr>
     <footer class="footer">
         <article class="art art1">
             <span><a class="hover--animation" href="mailto:herrebrughigor@gmail.com">Igor Herrebrugh</a></span>
-            <span><a class="hover--animation"
-                    href="https://www.google.com/maps/dir//Contactweg,+Amsterdam/@52.3945562,4.8461917,15z/data=!4m17!1m7!3m6!1s0x47c5e28953d7076d:0x23ce5417168790f!2sContactweg,+Amsterdam!3b1!8m2!3d52.3945565!4d4.8549465!4m8!1m0!1m5!1m1!1s0x47c5e28953d7076d:0x23ce5417168790f!2m2!1d4.8549465!2d52.3945565!3e3">
+            <span><a class="hover--animation" href="https://www.google.com/maps/dir//Contactweg,+Amsterdam/@52.3945562,4.8461917,15z/data=!4m17!1m7!3m6!1s0x47c5e28953d7076d:0x23ce5417168790f!2sContactweg,+Amsterdam!3b1!8m2!3d52.3945565!4d4.8549465!4m8!1m0!1m5!1m1!1s0x47c5e28953d7076d:0x23ce5417168790f!2m2!1d4.8549465!2d52.3945565!3e3">
                     Contactweg 36, 1014 AN Amsterdam</a>
             </span>
             <p>Nummer : (+31) 6 15438490</p>

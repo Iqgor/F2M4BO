@@ -255,6 +255,10 @@ body {
 
 }
 
+h2{
+    color:var(--texthead);
+}
+
 /*INDEX*/ 
 .mainIndex {
     width: 60vw;
@@ -304,7 +308,7 @@ body {
 }
 
 .mainIndex > h2{
-    color:var(--texthead);
+    
     font-size:210%;
     grid-column: 2/13;
     text-align: center;
@@ -317,7 +321,7 @@ body {
 
 
 .artmain1 > h2, .artmain2 > h2, .artmain3 > h2{
-    color: var(--texthead);
+    
     font-size: 175%;
     padding-bottom: 0.5rem;
 }
@@ -458,7 +462,6 @@ body {
 }
 
 .mainContact > h2 {
-    color: var(--texthead);
     font-size: 250%;
     text-align: center;
 }
@@ -536,9 +539,9 @@ body {
 
 .confirm span{
     cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .confirm span::after{
@@ -581,7 +584,7 @@ body {
     height: 35rem;
     width: 25rem;
     perspective: 100rem;
-    list-style: none;
+    list-style: none;   
   }
   
   .flip-card-inner {
@@ -597,6 +600,7 @@ body {
   
   .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
+
   }
   
   .flip-card-front, .flip-card-back {
@@ -647,7 +651,8 @@ body {
     text-decoration: none;
     outline: none;
     border: none;
-
+    background-color: white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     font-family: 'PT sans' , sans-serief;
     transition: all 0.5s;
     border-radius: 0.25rem;
@@ -659,6 +664,14 @@ hr {
     border: 0;
     border-top: 1px solid #eee;
 }
+
+/* INLEVEREN*/
+
+.mainInleveren{
+
+}
+
+
 
 /* FOOTER */
 
