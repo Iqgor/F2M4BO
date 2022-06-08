@@ -43,14 +43,10 @@
     <main class="main mainInleveren">
         <h2>Inleveren</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quaerat repellendus. Quaerat aut corporis ab quos dolore aspernatur neque tenetur fugit, alias quas sapiente perspiciatis sunt corrupti, dolorum, accusamus molestias.</p>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <label for="naam">Naam: </label>
-            <input type="text" name="naam" id="naam">
-            <label for="prijs">Verkoop Prijs:</label>
-            <input type="text" name="prijs" id="prijs">
-            <!---<input type="file" name="file"> -->
-            <button class="confirm"><span>Verzenden</span></button>
-            
+        <form action="upload.php" method="POST" enctype="multipart/form-data" >
+            <input type="text" name="text" id="">
+            <input type="file" name="file" id="">
+            <button type="submit" name="submit">Upload</button>
         </form>
     </main>
     <hr>

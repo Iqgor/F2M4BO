@@ -1,38 +1,23 @@
 <?php
+if (isset($_POST['submit'])) {
+
+    $target = "uploads/". basename($_FILES['file']['name']);
 
 
-$gamenaam = $_POST["naam"];
-$prijs = $_POST["prijs"];
-$foto = "";
+    $db = mysqli_connect("localhost", "root", "", "reuse");
 
-$host = "localhost";
-$dbname = "reuse";
-$username = "root";
-$password = "";
+    $naam = $_POST['text'];
+    $file = $_FILES['file']['name'];
 
-$conn = mysqli_connect($host,$username,$password,$dbname);
 
-if (mysqli_connect_errno()){
-    die("Connection error" . mysqli_connect_error());
+    $sql = "INSERT INTO producten (gamenaam,foto) VALUES ('$naam', '$file')";
+
+
+    mysqli_query($db, $sql);
+
+    if(move_uploaded_file($_FILES['file']['tmp_name'],$target)){
+
+    }else{
+        
+    }
 }
-
-$sql = "INSERT INTO producten  (gamenaam,prijs )
-        VALUES (?, ?, ?)";
-
-$stmt = mysqli_stmt_init($conn);
-
-if ( ! mysqli_stmt_prepare($stmt, $sql)) {
-    die(mysqli_error($conn));
-};
- 
-
-mysqli_stmt_bind_param($stmt, "ssii", $naam,$bericht,$priority,$type);
-
-mysqli_stmt_execute($stmt);
-
-
-
-
-
-
-

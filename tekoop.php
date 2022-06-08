@@ -51,8 +51,8 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <h1 class="logo">&#9842; ReUse</h1>
             </a>
             <ul>
-                <li><a href="index.html#js--artmain2" class="hover--animation2">Inzenden</a></li>
-                <li><a href="tekoop.html" class="hover--animation2">Tekoop</a></li>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
             </ul>
             <div class="icons">
@@ -82,7 +82,6 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                 </li>
             <?php endforeach; ?>
-
            
           
         </ul>
