@@ -41,12 +41,20 @@
         </div>
     </header>
     <main class="main mainInleveren">
+        
         <h2>Inleveren</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quaerat repellendus. Quaerat aut corporis ab quos dolore aspernatur neque tenetur fugit, alias quas sapiente perspiciatis sunt corrupti, dolorum, accusamus molestias.</p>
-        <form action="upload.php" method="POST" enctype="multipart/form-data" >
-            <input type="text" name="text" id="">
-            <input type="file" name="file" id="">
-            <button type="submit" name="submit">Upload</button>
+        <form class="inleverForm" action="upload.php" method="POST" enctype="multipart/form-data" >
+            <label class="naamLabel" for="naam">
+                <input placeholder="Naam" type="text" name="text" id="naam" required>
+            </label>
+           
+            <label for="File"><i class="fa-solid fa-camera "></i>
+                <input  type="file" name="file" id="File" accept=".jpg,.webp,.jpeg,.png,.gif" required>
+                
+            </label>
+            <span id="imageName"></span>
+            <button class="buttonverzend" type="submit" name="submit"><span>Verzenden</span></button>
         </form>
     </main>
     <hr>

@@ -12,6 +12,14 @@ window.setTimeout(function () {
     h1.style.display = "none", info.style.display = "flex"
 }, 2900);
 
+let input = document.getElementById("File");
+let imageName = document.getElementById("imageName")
+
+    input.addEventListener("change", ()=>{
+        let inputImage = document.querySelector("input[type=file]").files[0];
+        imageName.innerText = inputImage.name;
+    })
+
 
 /*let productbutton = document.getElementsByClassName("product--button")
 let productinfo = document.getElementsByClassName("productInfo")

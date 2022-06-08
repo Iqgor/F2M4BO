@@ -450,9 +450,74 @@ h2{
 
  } 
 
+/* INLEVEREN*/
+
+.mainInleveren{
+    min-height: 90vh;
+}
+
+
+.naamLabel > input{
+    width: 50%;
+    padding: 0.5rem;
+    margin-top: 0.15rem;
+    border-style: none;
+    border-radius: 0.25rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    outline: none;
+}
+
+.naamLabel, .naamLabel > input{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+
+.naamLabel::after{
+    content: "";
+    position:absolute ;
+    display: block;
+
+}
+
+.inleverForm > label[for=File]{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background: white;
+    width: 10rem;
+    height: 10rem;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background .35s ease-in-out;
+}
+
+.fa-camera{
+    font-size: 200%;
+    transition: color .35s ease-in-out;
+}
+
+.fa-camera:hover, .inleverForm > label[for=File]:hover{
+    color: var(--texthead);
+    background: var(--textcolor);
+}
+
+.inleverForm > span{
+    color:var(--texthead);
+}
+
+.inleverForm > label[for=File] > input{
+    display: none;
+} 
+
+
+
 /*CONTACT */
 
-.mainContact{
+.mainContact, .mainInleveren{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -461,7 +526,7 @@ h2{
     padding: 5rem;
 }
 
-.mainContact > h2 {
+.mainContact > h2,.mainInleveren > h2 {
     font-size: 250%;
     text-align: center;
 }
@@ -470,7 +535,7 @@ h2{
     color:var(--texthead);
     font-size: 150%;
 }
-.contactForm{
+.contactForm,  .inleverForm{
     width: 50%;
     height: 50%;
     display: flex;
@@ -478,7 +543,7 @@ h2{
     gap: 0.5rem;
 }
 
-.contactForm >input[type=text]{
+.contactForm >input[type=text] {
     width: 50%;
     padding: 0.5rem;
     margin-top: 0.15rem;
@@ -525,7 +590,7 @@ h2{
     background-color: white;
 }
 
-.contactForm > button{
+.buttonverzend{
     width: 50%;
     height: 4rem;
     margin-top: 0.5rem;
@@ -537,14 +602,14 @@ h2{
     cursor: pointer;
 }
 
-.confirm span{
+.buttonverzend span{
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.confirm span::after{
+.buttonverzend span::after{
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -555,11 +620,11 @@ h2{
 }
 
 
-.confirm:hover span{
+.buttonverzend:hover span{
     padding-right: 2.5rem;
 }
 
-.confirm:hover span:after{
+.buttonverzend:hover span:after{
     opacity: 1;
     right: 0;
 }
@@ -665,11 +730,7 @@ hr {
     border-top: 1px solid #eee;
 }
 
-/* INLEVEREN*/
 
-.mainInleveren{
-
-}
 
 
 
