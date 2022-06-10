@@ -1,3 +1,40 @@
+<?php
+$host = "localhost";
+$dbname = "reuse";
+$username = "root";
+$password = "";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (mysqli_connect_errno()) {
+    die("Connection error" . mysqli_connect_error());
+}
+
+if(!isset($_GET['id'])) {
+    echo "De id is niet gezet";
+    exit;
+}
+
+$id = $_GET['id'];
+$check_int = filter_var($id, FILTER_VALIDATE_INT);
+
+if($check_int == false){
+    echo "dit is geen getal (INTERGER)";
+    exit;
+}
+
+
+
+
+$query = "SELECT * FROM  producten WHERE id='$id' ";
+$query_run = mysqli_query($conn, $query);
+
+
+    
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +66,7 @@
                 <h1 class="logo">&#9842; ReUse</h1>
             </a>
             <ul>
-                <li><a href="index.html#js--artmain2" class="hover--animation2">Inzenden</a></li>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
                 <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
             </ul>
@@ -40,30 +77,17 @@
             </div>
         </div>
     </header>
-    <main class="main mainInleveren">
+    <main class="main mainDetails">
+        <section class="detailsVak">
+            <?php foreach($query_run as $row):?>
+                <h2><?php echo  $row['gamenaam']?></h2>
+                <img src="<?php echo  $row['foto']?>" alt="foto Game">
+                <p><?php echo $row['beschrijving']?></p>
+                <p>Dit product is <?php echo  $row['prijs']?> euro.</p>
+            <?php endforeach; ?>
+        </section>
         
-        <h2>Inleveren</h2>
-        <p>Hier kunt uw je game inleveren voor verzending. Het enige wat we nodig hebben is je email, naam, gamenaam en een foto van de game. 
-            Na het verzenden van het formulier checken wij of alles klopt, als dat is gebeurt krijgt uw een track en trace code doorgestuurd die uw moet koppelen aan het pakket wat uw naar ons toe stuurt.
-            Wanneer uw dat heeft gedaan is alles aan uw kant gedaan en krijgt u een mailtje van ons als alles goed is aangekomen!
-        </p>
-        <form class="inleverForm" action="upload.php" method="POST" enctype="multipart/form-data" >
-            <label class="naamLabel" for="naam">
-                <input placeholder="Naam" type="text" name="text" id="text" required>
-            </label>
-            <label class="naamLabel" for="gameNaam">
-                <input placeholder="Gamenaam" type="text" name="gamenaam" id="gamenaam" required>
-            </label>
-            <label class="naamLabel" for="email">
-                <input placeholder="Email" type="text" name="email" id="email" required>
-            </label>
-            <label for="File"><i class="fa-solid fa-camera "></i>
-                <input  type="file" name="File" id="File" accept=".jpg,.webp,.jpeg,.png,.gif" required>
-                
-            </label>
-            <span id="imageName"></span>
-            <button class="buttonverzend" type="submit" name="submit"><span>Verzenden</span></button>
-        </form>
+
     </main>
     <hr>
     <footer class="footer">

@@ -456,6 +456,14 @@ h2{
     min-height: 90vh;
 }
 
+.inleverForm{
+    width: 60rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
 
 .naamLabel > input{
     width: 50%;
@@ -471,6 +479,7 @@ h2{
     position: relative;
     display: block;
     box-sizing: border-box;
+    
 }
 
 .naamLabel::after{
@@ -535,7 +544,7 @@ h2{
     color:var(--texthead);
     font-size: 150%;
 }
-.contactForm,  .inleverForm{
+.contactForm{
     width: 50%;
     height: 50%;
     display: flex;
@@ -722,6 +731,28 @@ h2{
     transition: all 0.5s;
     border-radius: 0.25rem;
   }
+
+
+/* DETAILS */
+
+.mainDetails{
+    
+    min-height: 90vh;
+    gap: 2rem;
+}
+
+.detailsVak{
+    height: 100%;
+    width: 100%;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detailsVak > img{
+    width: 25%;
+}
 
 
 hr {

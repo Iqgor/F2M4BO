@@ -75,6 +75,7 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <h3><?php echo $product['gamenaam']; ?></h3>
                             <p><?php echo $product['prijs'], "$"; ?></p>
                             <img src="<?php echo $product['foto']; ?> " alt="">
+                            <a href="details.php?id=<?php echo $product['id']?>" class="hover--animation">Meer info:</a>
                             <button class="confirm"><span>Zet het in winkelmandje</span></button>
                         </div>
                     </div>

@@ -57,8 +57,8 @@ mysqli_stmt_execute($stmt);
         <div class="headerInfo hContact">
             <a href="index.html"><h1 class="logo">&#9842; ReUse</h1></a>
             <ul>
-                <li><a href="../index.html#js--artmain2" class="hover--animation2">Inzenden</a></li>
-                <li><a href="../index.html#js--artmain3" class="hover--animation2">Verdienen</a></li>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">TeKoop</a></li>
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
             </ul>
             <div class="icons">
