@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,48 +34,72 @@
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
             </ul>
             <div class="icons">
-                <div class="shopcart hover--animation2"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-                
+                <div class="shopcart hover--animation2">
+                    <a href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+                <div class="menu hover--animation2"><button id="js--menuInfo-on"><i
+                            class="fa-solid fa-bars"></i></button></a></div>
             </div>
+
+        </div>
+        <div id="js--menuInfo" class="headerInfo-hidden">
+            <ul>
+                <li><a href="#js--artmain2" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
+                <li><a href="contact.html" class="hover--animation2">Contact</a></li>
+                <li><button class="hover--animation2" id="js--menuInfo-off">X</button></li>
+
+            </ul>
         </div>
     </header>
     <main class="main mainIndex">
         <figure class="reyAnimation animationConfig">
-            <i class="fa-solid fa-recycle animationConfig "></i> 
+            <i class="fa-solid fa-recycle animationConfig "></i>
             <i class="fa-solid fa-gamepad animationConfig "></i>
             <i class="fa-solid fa-desktop animationConfig"></i>
         </figure>
         <h2>Laat je ouwe "game" herinneringen herleven!</h2>
-        <article  class="artmain1" data-aos="fade-left">
+        <article class="artmain1" data-aos="fade-left">
             <h2>Wat doen we?</h2>
-            <p>Bij ReUse geven wij een kans om oude games opnieuw te spelen en er weer nieuw plezier uit te halen. <br>We verzorgen een veilige manier om games optesturen en garantie als er iets mis gaat.
-               Als wij de game hebben ontvangen krijgt u zo snel mogelijk de Steam-Key van game via de mail. <br>Bij ons kan je ook games kopen die door andere mensen zijn opgestuurd zo krijgen die games ook nog een tweede leven.  </p>
-           
-        </article> 
-       
-        
-        <hr class="mainHR"> 
+            <p>Bij ReUse geven wij een kans om oude games opnieuw te spelen en er weer nieuw plezier uit te halen.
+                <br>We verzorgen een veilige manier om games optesturen en garantie als er iets mis gaat.
+                Als wij de game hebben ontvangen krijgt u zo snel mogelijk de Steam-Key van game via de mail. <br>Bij
+                ons kan je ook games kopen die door andere mensen zijn opgestuurd zo krijgen die games ook nog een
+                tweede leven.
+            </p>
+
+        </article>
+
+
+        <hr class="mainHR">
         <div class="review1" data-aos="zoom-in">
             <img class="fotoReviews" src="img/avatar-549ed7cf023844c5e5f8f45936d02dca.jpg" alt="Foto reviewer vrouw">
             <h3>Mary Reed</h3>
-            <p>Mijn zoon had veel oude games. Deze heb ik allemaal opgestuurd naar ReUse. Daarna alles netjes binnengekregen!</p>
+            <p>Mijn zoon had veel oude games. Deze heb ik allemaal opgestuurd naar ReUse. Daarna alles netjes
+                binnengekregen!</p>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
         </div>
-        <article id="js--artmain2"  class="artmain2" data-aos="fade-left" >
+        <article id="js--artmain2" class="artmain2" data-aos="fade-left">
             <h2>Inzenden</h2>
-            <p>Bij ons kan je je games inzenden zonder enige kosten. Het enige wat jij natuurlijk moet hebben is de game. <br>
-               Er zijn wel wat benodigdheden: een foto van de game en uw personelijke details. 
-               Voor dat u iets wilt opsturen is het misschien wel handig om tekijken of wij de Steam-key van game die u wilt verzenden wel hebben, 
-               zo kunt u na validatie meteen de key krijgen en hoeft u niet lang te wachten! Dus waar wacht je nog op klik <a class="hover--animation" href="inleveren.html">hier</a> voor het verzend formulier.   </p>
+            <p>Bij ons kan je je games inzenden zonder enige kosten. Het enige wat jij natuurlijk moet hebben is de
+                game. <br>
+                Er zijn wel wat benodigdheden: een foto van de game en uw personelijke details.
+                Voor dat u iets wilt opsturen is het misschien wel handig om tekijken of wij de Steam-key van game die u
+                wilt verzenden wel hebben,
+                zo kunt u na validatie meteen de key krijgen en hoeft u niet lang te wachten! Dus waar wacht je nog op
+                klik <a class="hover--animation" href="inleveren.html">hier</a> voor het verzend formulier. </p>
         </article>
         <div class="review2" data-aos="zoom-in">
             <img class="fotoReviews" src="img/avatar-8cf3f321bc8b522ecfe033554a1bf92a.jpg" alt="Foto reviewer man">
             <h3>Joshua Scott</h3>
-            <p>Ik gebruik nu al een paar maanden ReUse. Het is ontzettend handig als ik bijvoorbeeld een game heb uitgespeeld op mijn console 
+            <p>Ik gebruik nu al een paar maanden ReUse. Het is ontzettend handig als ik bijvoorbeeld een game heb
+                uitgespeeld op mijn console
                 en dat ik hem daarna zonder kosten kan spelen op pc!
             </p>
             <span class="fa fa-star checked"></span>
@@ -86,11 +110,14 @@
         </div>
         <article id="js--artmain3" class="artmain3" data-aos="fade-right">
             <h2>Verdienen</h2>
-            <p>Bij ReUse bieden we ook aan om uw games als verkoop aan te stellen. 
-                Na het verzenden van uw game gaan onze specialisten kijken of de game nog geld waard is en of dat we hem tekoop aan kunnen bieden.
-                Als de game is goedgekeurt voor verkoop krijgt uw een mail van ons met de voorwaarde, daarin staan de percentages en andere dingen wat voor uw handig is. 
+            <p>Bij ReUse bieden we ook aan om uw games als verkoop aan te stellen.
+                Na het verzenden van uw game gaan onze specialisten kijken of de game nog geld waard is en of dat we hem
+                tekoop aan kunnen bieden.
+                Als de game is goedgekeurt voor verkoop krijgt uw een mail van ons met de voorwaarde, daarin staan de
+                percentages en andere dingen wat voor uw handig is.
                 Ten slot als de game verkocht is dan word het percentage geld meteen naar uw bankrekening gestuurd! <br>
-                Tip! kijk ook eens bij <a class="hover--animation" href="tekoop.php">Tekoop</a> misschien vind je daar ook iets leuks! </p>
+                Tip! kijk ook eens bij <a class="hover--animation" href="tekoop.php">Tekoop</a> misschien vind je daar
+                ook iets leuks! </p>
         </article>
     </main>
     <a class="top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
@@ -115,15 +142,17 @@
             <a href="#" class="hover--animation">Privacy</a>
             <a href="#" class="hover--animation">Werkwijze</a>
             <p>All Rights Reserved &#169; </p>
+
         </article>
     </footer>
 </body>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-  AOS.init({
-    once: true,
-    offset: 200,
-    duration: 1500,
-  });
+    AOS.init({
+        once: true,
+        offset: 200,
+        duration: 1500,
+    });
 </script>
+
 </html>

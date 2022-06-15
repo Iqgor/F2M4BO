@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,7 +25,7 @@
     <figure class="circle circle2"></figure>
     <header class="header">
 
-        <div class="headerInfo hContact">
+        <div class="headerInfo hContact" id="js--info">
             <a href="index.html">
                 <h1 class="logo">&#9842; ReUse</h1>
             </a>
@@ -35,14 +36,24 @@
             </ul>
             <div class="icons">
                 <div class="shopcart hover--animation2"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-
+                <div class="menu hover--animation2"><button id="js--menuInfo-on"><i class="fa-solid fa-bars"></i></button></a></div>
 
             </div>
+           
+        </div>
+        <div id="js--menuInfo" class="headerInfo-hidden">
+            <ul>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
+                <li><a href="contact.html" class="hover--animation2">Contact</a></li>
+                <li><button class="hover--animation2" id="js--menuInfo-off">X</button></li>
+                
+            </ul>
         </div>
     </header>
     <main class="main mainInleveren">
         
-        <h2>Inleveren</h2>
+        <h2>Inzenden</h2>
         <p>Hier kunt uw je game inleveren voor verzending. Het enige wat we nodig hebben is je email, naam, gamenaam en een foto van de game. 
             Na het verzenden van het formulier checken wij of alles klopt, als dat is gebeurt krijgt uw een track en trace code doorgestuurd die uw moet koppelen aan het pakket wat uw naar ons toe stuurt.
             Wanneer uw dat heeft gedaan is alles aan uw kant gedaan en krijgt u een mailtje van ons als alles goed is aangekomen!
@@ -62,7 +73,7 @@
                 
             </label>
             <span id="imageName"></span>
-            <button class="buttonverzend" type="submit" name="submit"><span>Verzenden</span></button>
+            <button class="buttonverzend"><span>Verzenden</span></button>
         </form>
     </main>
     <hr>

@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
     die("Connection error" . mysqli_connect_error());
 }
 
-$sql = 'SELECT  id,gamenaam,prijs,foto FROM producten ';
+$sql = 'SELECT  id,gamenaam,prijs,categorie,foto FROM producten ';
 
 $result = mysqli_query($conn, $sql);
 
@@ -31,6 +31,7 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,12 +42,13 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="shortcut icon" href="img/recycling-symbol-icon-twotone-light-green.png" type="image/x-icon">
 </head>
 
-<body data-aos="fade-in" data-aos-duration="1500">
+<body class="tekoopPage" id="js--tekoop" data-aos="fade-in" data-aos-duration="1500">
     <figure class="circle circle1"></figure>
     <figure class="circle circle2"></figure>
-    <header class="header">
 
-        <div class="headerInfo hContact">
+    <header class="header">
+        <span class="hidden" id= "js--title"></span>
+        <div class="headerInfo hContact" id="js--info">
             <a href="index.html">
                 <h1 class="logo">&#9842; ReUse</h1>
             </a>
@@ -56,17 +58,79 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
             </ul>
             <div class="icons">
-                <div class="shopcart hover--animation2"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
+                <div class="shopcart hover--animation2">
+                    <figure class="cartItems" id="js--cart">
+                        <p id="js--inCart">0</p>
+                    </figure>
+                    <a href="#">
 
+                        <i class="fa-solid fa-cart-shopping">
+
+                        </i>
+                    </a>
+                </div>
+                <div class="menu hover--animation2"><button id="js--menuInfo-on"><i class="fa-solid fa-bars"></i></button></div>
 
             </div>
+
+        </div>
+        <div id="js--menuInfo" class="headerInfo-hidden">
+            <ul>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
+                <li><a href="contact.html" class="hover--animation2">Contact</a></li>
+                <li><button class="hover--animation2" id="js--menuInfo-off">X</button></li>
+
+            </ul>
         </div>
     </header>
+    <section class="categories">
+        <h3>Categorieën</h3>
+        <div>
+            <label for="checkbox-shooting" class="label">
+                <p>Shooting</p>
+                <input type="checkbox" class="filter" id="checkbox-shooting">
+            </label>
+        </div>
+        <div>
+            <label for="checkbox-racing" class="label">
+                <p>Racing</p>
+                <input type="checkbox" class="filter" id="checkbox-racing">
+            </label>
+        </div>
+        <div>
+            <label for="checkbox-story" class="label">
+                <p> Story</p>
+                <input type="checkbox" class="filter" id="checkbox-story">
+            </label>
+        </div>
+        <div>
+            <label for="checkbox-horror" class="label">
+                <p>Horror</p>
+                <input type="checkbox" class="filter" id="checkbox-horror">
+            </label>
+        </div>
+        <div>
+            <label for="checkbox-vechten" class="label">
+                <p>Vechten</p>
+                <input type="checkbox" class="filter" id="checkbox-vechten">
+            </label>
+        </div>
+        <div>
+            <p>Min</p>
+            <input type="number" class="" value="10">
+
+        </div>
+        <div>
+            <p>Max</p>
+            <input type="number" class="" value="25">
+        </div>
+    </section>
     <main class="main mainTekoop">
         <ul class="producten">
 
             <?php foreach ($producten as $product) : ?>
-                <li class="flip-card">
+                <li data-category="<?php echo $product['categorie']; ?>" class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="<?php echo $product['foto']; ?>" alt="">
@@ -75,16 +139,17 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <h3><?php echo $product['gamenaam']; ?></h3>
                             <p><?php echo $product['prijs'], "$"; ?></p>
                             <img src="<?php echo $product['foto']; ?> " alt="">
-                            <a href="details.php?id=<?php echo $product['id']?>" class="hover--animation">Meer info:</a>
-                            <button class="confirm"><span>Zet het in winkelmandje</span></button>
+                            <a href="details.php?id=<?php echo $product['id'] ?>" class="hover--animation">Meer info:</a>
+                            <button class="buttonverzend toCard"><span>Zet het in winkelmandje</span></button>
+                            <span class="message" id="js--message">Verzonden!</span>
                         </div>
                     </div>
 
 
                 </li>
             <?php endforeach; ?>
-           
-          
+
+
         </ul>
     </main>
     <a class="top" href="#"><i class="fa-solid fa-arrow-up"></i></a>

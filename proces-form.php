@@ -42,6 +42,7 @@ mysqli_stmt_execute($stmt);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,7 +55,7 @@ mysqli_stmt_execute($stmt);
 <body>
     <header class="header">
        
-        <div class="headerInfo hContact">
+        <div class="headerInfo hContact" id="js--info">
             <a href="index.html"><h1 class="logo">&#9842; ReUse</h1></a>
             <ul>
                 <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
@@ -63,12 +64,22 @@ mysqli_stmt_execute($stmt);
             </ul>
             <div class="icons">
                 <div class="shopcart hover--animation2"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-                <div class="login hover--animation2"><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <div class="menu hover--animation2"><button id="js--menuInfo-on"><i class="fa-solid fa-bars"></i></button></a></div>
                 </div>
             </div>
+            
+        </div>
+        <div id="js--menuInfo" class="headerInfo-hidden">
+            <ul>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
+                <li><a href="contact.html" class="hover--animation2">Contact</a></li>
+                <li><button class="hover--animation2" id="js--menuInfo-off">X</button></li>
+                
+            </ul>
         </div>
     </header>
-    <main class="main mainContact">
+    <main class="main mainPHP">
         <h2>Het formulier is ingevuld!</h2>
     </main>
     <hr>

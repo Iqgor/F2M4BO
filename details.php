@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
     die("Connection error" . mysqli_connect_error());
 }
 
-if(!isset($_GET['id'])) {
+if (!isset($_GET['id'])) {
     echo "De id is niet gezet";
     exit;
 }
@@ -18,7 +18,7 @@ if(!isset($_GET['id'])) {
 $id = $_GET['id'];
 $check_int = filter_var($id, FILTER_VALIDATE_INT);
 
-if($check_int == false){
+if ($check_int == false) {
     echo "dit is geen getal (INTERGER)";
     exit;
 }
@@ -30,7 +30,7 @@ $query = "SELECT * FROM  producten WHERE id='$id' ";
 $query_run = mysqli_query($conn, $query);
 
 
-    
+
 
 ?>
 
@@ -46,6 +46,7 @@ $query_run = mysqli_query($conn, $query);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -61,7 +62,7 @@ $query_run = mysqli_query($conn, $query);
     <figure class="circle circle2"></figure>
     <header class="header">
 
-        <div class="headerInfo hContact">
+        <div class="headerInfo hContact" id="js--info">
             <a href="index.html">
                 <h1 class="logo">&#9842; ReUse</h1>
             </a>
@@ -72,21 +73,31 @@ $query_run = mysqli_query($conn, $query);
             </ul>
             <div class="icons">
                 <div class="shopcart hover--animation2"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></div>
-
+                <div class="menu hover--animation2"><button id="js--menuInfo-on"><i class="fa-solid fa-bars"></i></button></a></div>
 
             </div>
+            
+        </div>
+        <div id="js--menuInfo" class="headerInfo-hidden">
+            <ul>
+                <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
+                <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
+                <li><a href="contact.html" class="hover--animation2">Contact</a></li>
+                <li><button class="hover--animation2" id="js--menuInfo-off">X</button></li>
+                
+            </ul>
         </div>
     </header>
     <main class="main mainDetails">
         <section class="detailsVak">
-            <?php foreach($query_run as $row):?>
-                <h2><?php echo  $row['gamenaam']?></h2>
-                <img src="<?php echo  $row['foto']?>" alt="foto Game">
-                <p><?php echo $row['beschrijving']?></p>
-                <p>Dit product is <?php echo  $row['prijs']?> euro.</p>
+            <?php foreach ($query_run as $row) : ?>
+                <h2><?php echo  $row['gamenaam'] ?></h2>
+                <img src="<?php echo  $row['foto'] ?>" alt="foto Game">
+                <p><?php echo $row['beschrijving'] ?></p>
+                <p>Dit product is <?php echo  $row['prijs'] ?> euro.<br><a class="hover--animation"href="tekoop.php"><--- Terug</a></p>
             <?php endforeach; ?>
         </section>
-        
+
 
     </main>
     <hr>
