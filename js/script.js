@@ -26,7 +26,7 @@ let berichten = document.getElementById("js--message")
 let count = 0
 
 
-for (let i = 0; i < addbutton.length; i++){
+for (let i = 0; i < addbutton.length; i++) {
     addbutton[i].onclick = function () {
         count++;
         cartitems.innerHTML = count;
@@ -49,30 +49,34 @@ menuoff.onclick = function () {
 }
 
 
+
 let allcards = document.getElementsByClassName("flip-card")
 
 let filters = document.getElementsByClassName("filter")
+
+
 
 for (let i = 0; i < filters.length; i++) {
     filters[i].checked = true;
 }
 
 
+
 let shootingfilter = document.getElementById("checkbox-shooting")
 shootingfilter.onchange = function () {
     if (shootingfilter.checked === true) {
-        for (let i = 0; i < allcards.length; i++){
+        for (let i = 0; i < allcards.length; i++) {
             if (allcards[i].dataset.category === "shooting") {
                 allcards[i].style.display = "block"
             }
-        }   
+        }
     }
     else {
-        for (let i = 0; i < allcards.length; i++){
+        for (let i = 0; i < allcards.length; i++) {
             if (allcards[i].dataset.category === "shooting") {
                 allcards[i].style.display = "none"
             }
-        } 
+        }
     }
 }
 

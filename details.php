@@ -1,37 +1,34 @@
 <?php
-$host = "localhost";
-$dbname = "reuse";
-$username = "root";
-$password = "";
+require 'functions.php';
 
-$conn = mysqli_connect($host, $username, $password, $dbname);
-
-if (mysqli_connect_errno()) {
-    die("Connection error" . mysqli_connect_error());
-}
+$conn = dbConnect();
 
 if (!isset($_GET['id'])) {
-    echo "De id is niet gezet";
+    echo ("de id is niet gezet");
     exit;
 }
+
 
 $id = $_GET['id'];
-$check_int = filter_var($id, FILTER_VALIDATE_INT);
 
-if ($check_int == false) {
-    echo "dit is geen getal (INTERGER)";
+$check_int = filter_var($id, FILTER_VALIDATE_INT);
+if ($check_int === false) {
+    echo ("dit is geen getal");
     exit;
 }
 
 
 
 
-$query = "SELECT * FROM  producten WHERE id='$id' ";
-$query_run = mysqli_query($conn, $query);
 
 
+$statement = $conn->prepare("SELECT * FROM `producten` WHERE id= ?");
+$params = [$id];
 
 
+$statement->execute($params);
+
+$place = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -76,7 +73,7 @@ $query_run = mysqli_query($conn, $query);
                 <div class="menu hover--animation2"><button id="js--menuInfo-on"><i class="fa-solid fa-bars"></i></button></a></div>
 
             </div>
-            
+
         </div>
         <div id="js--menuInfo" class="headerInfo-hidden">
             <ul>
@@ -84,18 +81,18 @@ $query_run = mysqli_query($conn, $query);
                 <li><a href="tekoop.php" class="hover--animation2">Tekoop</a></li>
                 <li><a href="contact.html" class="hover--animation2">Contact</a></li>
                 <li><button class="hover--animation2" id="js--menuInfo-off">X</button></li>
-                
+
             </ul>
         </div>
     </header>
     <main class="main mainDetails">
         <section class="detailsVak">
-            <?php foreach ($query_run as $row) : ?>
-                <h2><?php echo  $row['gamenaam'] ?></h2>
-                <img src="<?php echo  $row['foto'] ?>" alt="foto Game">
-                <p><?php echo $row['beschrijving'] ?></p>
-                <p>Dit product is <?php echo  $row['prijs'] ?> euro.<br><a class="hover--animation"href="tekoop.php"><--- Terug</a></p>
-            <?php endforeach; ?>
+            <h2><?php echo  $place['gamenaam'] ?></h2>
+            <img src="<?php echo  $place['foto'] ?>" alt="foto Game">
+            <p><?php echo $place['beschrijving'] ?></p>
+            <p>Dit product is <?php echo  $place['prijs'] ?> euro.<br><a class="hover--animation" href="tekoop.php">
+                    <--- Terug</a>
+            </p>
         </section>
 
 

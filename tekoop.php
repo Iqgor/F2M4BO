@@ -1,20 +1,11 @@
 <?php
-$host = "localhost";
-$dbname = "reuse";
-$username = "root";
-$password = "";
+require 'functions.php';
 
-$conn = mysqli_connect($host, $username, $password, $dbname);
+$conn = dbConnect();
 
-if (mysqli_connect_errno()) {
-    die("Connection error" . mysqli_connect_error());
-}
+$result = $conn -> query("SELECT * FROM `producten`")
 
-$sql = 'SELECT  id,gamenaam,prijs,categorie,foto FROM producten ';
 
-$result = mysqli_query($conn, $sql);
-
-$producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 
@@ -47,7 +38,7 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <figure class="circle circle2"></figure>
 
     <header class="header">
-        <span class="hidden" id= "js--title"></span>
+        <span class="hidden" id="js--title"></span>
         <div class="headerInfo hContact" id="js--info">
             <a href="index.html">
                 <h1 class="logo">&#9842; ReUse</h1>
@@ -116,20 +107,26 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <input type="checkbox" class="filter" id="checkbox-vechten">
             </label>
         </div>
-        <div>
-            <p>Min</p>
-            <input type="number" class="" value="10">
-
-        </div>
-        <div>
-            <p>Max</p>
-            <input type="number" class="" value="25">
-        </div>
+        <form action="">
+            <div>
+                <label for="platform">
+                    <p>Platform:</p>
+                    <select name="platform" id="platform">`
+                        <option value="alles">Alles</option>
+                        <option value="playstation">PlayStation</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="nintendo">Nintendo</option>
+                        <option value="pc">PC</option>
+                    </select>
+                    <input type="submit" value="Submit">
+                </label>
+            </div>
+        </form>
     </section>
     <main class="main mainTekoop">
         <ul class="producten">
 
-            <?php foreach ($producten as $product) : ?>
+            <?php foreach ($result as $product) : ?>
                 <li data-category="<?php echo $product['categorie']; ?>" class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -137,7 +134,7 @@ $producten = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="flip-card-back">
                             <h3><?php echo $product['gamenaam']; ?></h3>
-                            <p><?php echo $product['prijs'], "$"; ?></p>
+                            <p class="card-prijs"><?php echo $product['prijs'], "$"; ?></p>
                             <img src="<?php echo $product['foto']; ?> " alt="">
                             <a href="details.php?id=<?php echo $product['id'] ?>" class="hover--animation">Meer info:</a>
                             <button class="buttonverzend toCard"><span>Zet het in winkelmandje</span></button>
