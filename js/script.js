@@ -2,7 +2,9 @@ const h1 = document.getElementById("js--title")
 let info = document.getElementById("js--info")
 const login = document.getElementById("js--login")
 
-
+function goBack() {
+    window.history.back();
+}
 
 window.setTimeout(function () {
     h1.style.animation = "fadeOut 0.5s ease forwards"

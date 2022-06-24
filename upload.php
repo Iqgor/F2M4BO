@@ -6,37 +6,32 @@ $file = $_FILES['File']['name'];
 
 
 
-$host = "localhost";
-$dbname = "reuse";
-$username = "root";
-$password = "";
+require 'functions.php';
 
-$conn = mysqli_connect($host,$username,$password,$dbname);
 
-if (mysqli_connect_errno()){
-    die("Connection error" . mysqli_connect_error());
-}
+
+$conn = dbConnect();
+
 
 $sql = "INSERT INTO inzenden (naam,gamenaam, email,foto )
-        VALUES (?, ?, ?, ? )";
+        VALUES (:naam, :gamenaam, :email, :foto );";
 
-$stmt = mysqli_stmt_init($conn);
+$statement = $conn->prepare($sql);
+$params = [
+    'naam' => $naam,
+    'gamenaam' => $gamenaam,
+    'email' => $email,
+    'foto' => $file,
+];
 
-if ( ! mysqli_stmt_prepare($stmt, $sql)) {
-    die(mysqli_error($conn));
-};
- 
-
-mysqli_stmt_bind_param($stmt, "ssss", $naam,$gamenaam,$email,$file);
-
-mysqli_stmt_execute($stmt);
+$statement -> execute($params);
 
 
 
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
@@ -61,7 +56,7 @@ mysqli_stmt_execute($stmt);
 
         <div class="headerInfo hContact"id="js--info">
             <a href="index.html">
-                <h1 class="logo">&#9842; ReUse</h1>
+                <h1 class="logo"><i class="fa-solid fa-gamepad "></i> ReUse</h1>
             </a>
             <ul>
                 <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>

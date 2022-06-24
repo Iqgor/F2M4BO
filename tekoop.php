@@ -12,7 +12,7 @@ $result = $conn -> query("SELECT * FROM `producten`")
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
@@ -41,7 +41,7 @@ $result = $conn -> query("SELECT * FROM `producten`")
         <span class="hidden" id="js--title"></span>
         <div class="headerInfo hContact" id="js--info">
             <a href="index.html">
-                <h1 class="logo">&#9842; ReUse</h1>
+                <h1 class="logo"><i class="fa-solid fa-gamepad "></i> ReUse</h1>
             </a>
             <ul>
                 <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
@@ -111,7 +111,7 @@ $result = $conn -> query("SELECT * FROM `producten`")
             <div>
                 <label for="platform">
                     <p>Platform:</p>
-                    <select name="platform" id="platform">`
+                    <select class="platforms" name="platform" id="platform">`
                         <option value="alles">Alles</option>
                         <option value="playstation">PlayStation</option>
                         <option value="xbox">Xbox</option>

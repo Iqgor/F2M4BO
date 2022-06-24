@@ -33,7 +33,7 @@ $place = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
@@ -61,7 +61,7 @@ $place = $statement->fetch(PDO::FETCH_ASSOC);
 
         <div class="headerInfo hContact" id="js--info">
             <a href="index.html">
-                <h1 class="logo">&#9842; ReUse</h1>
+                <h1 class="logo"><i class="fa-solid fa-gamepad "></i> ReUse</h1>
             </a>
             <ul>
                 <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
@@ -90,9 +90,8 @@ $place = $statement->fetch(PDO::FETCH_ASSOC);
             <h2><?php echo  $place['gamenaam'] ?></h2>
             <img src="<?php echo  $place['foto'] ?>" alt="foto Game">
             <p><?php echo $place['beschrijving'] ?></p>
-            <p>Dit product is <?php echo  $place['prijs'] ?> euro.<br><a class="hover--animation" href="tekoop.php">
-                    <--- Terug</a>
-            </p>
+            <p>Dit product is <?php echo  $place['prijs'] ?> euro.<br></p>
+            <a  onclick="goBack()" href="tekoop.php"><span class="hover--animation"><--- Terug</span></a>
         </section>
 
 

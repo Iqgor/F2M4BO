@@ -6,35 +6,30 @@ $priority = filter_input(INPUT_POST, "priority", FILTER_VALIDATE_INT);
 $type = filter_input(INPUT_POST,"type",FILTER_VALIDATE_INT);
 
 
-$host = "localhost";
-$dbname = "reuse";
-$username = "root";
-$password = "";
+require 'functions.php';
 
-$conn = mysqli_connect($host,$username,$password,$dbname);
 
-if (mysqli_connect_errno()){
-    die("Connection error" . mysqli_connect_error());
-}
+
+$conn = dbConnect();
+
 
 $sql = "INSERT INTO berichten (name,body, priority,type )
-        VALUES (?, ?, ?, ? )";
+        VALUES (:naam, :bericht, :priority, :type )";
 
-$stmt = mysqli_stmt_init($conn);
+$statement = $conn->prepare($sql);
+$params = [
+    'naam' => $naam,
+    'bericht' => $bericht,
+    'priority' => $priority,
+    'type' => $type,
+];
 
-if ( ! mysqli_stmt_prepare($stmt, $sql)) {
-    die(mysqli_error($conn));
-};
- 
-
-mysqli_stmt_bind_param($stmt, "ssii", $naam,$bericht,$priority,$type);
-
-mysqli_stmt_execute($stmt);
+$statement -> execute($params);
 
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +51,7 @@ mysqli_stmt_execute($stmt);
     <header class="header">
        
         <div class="headerInfo hContact" id="js--info">
-            <a href="index.html"><h1 class="logo">&#9842; ReUse</h1></a>
+            <a href="index.html"><h1 class="logo"><i class="fa-solid fa-gamepad "></i> ReUse</h1></a>
             <ul>
                 <li><a href="inleveren.html" class="hover--animation2">Inzenden</a></li>
                 <li><a href="tekoop.php" class="hover--animation2">TeKoop</a></li>
