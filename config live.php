@@ -4,7 +4,7 @@ $config = [
     'server' => '127.0.0.1',
     'database' => 'c7637reuse',
     'username' => 'c7637MakeItRain',
-    'password' => 'eviuLWWpG!3V3',
+    'password' => 'qqgznmqVVZQBH5!',
     'port' =>  3306 
 
 ];
